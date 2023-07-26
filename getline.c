@@ -83,7 +83,7 @@ void assign_lineptr(char **lineptr, size_t *n, char *buffer, size_t b)
 	}
 	else
 	{
-		*_strcpy(*lineptr, buffer);
+		*lineptr++ = buffer;
 		free(buffer);
 	}
 }
@@ -143,4 +143,3 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 		input = 0;
 	return (ret);
 }
-
