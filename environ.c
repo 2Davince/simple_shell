@@ -10,7 +10,6 @@ char **_getenv(const char *var);
  * Return: If an error occurs - NULL.
  *         O/w - a double pointer to the new copy.
  */
-
 char **_copyenv(void)
 {
 	char **new_environ;
@@ -25,10 +24,10 @@ char **_copyenv(void)
 		return (NULL);
 
 	for (index = 0; environ[index]; index++)
-			{
-	new_environ[index] = malloc(_strlen(environ[index]) + 1);
+	{
+		new_environ[index] = malloc(_strlen(environ[index]) + 1);
 
-	if (!new_environ[index])
+		if (!new_environ[index])
 		{
 			for (index--; index >= 0; index--)
 				free(new_environ[index]);
@@ -36,7 +35,7 @@ char **_copyenv(void)
 			return (NULL);
 		}
 		_strcpy(new_environ[index], environ[index]);
-			}
+	}
 	new_environ[index] = NULL;
 
 	return (new_environ);
@@ -45,7 +44,6 @@ char **_copyenv(void)
 /**
  * free_env - Frees the the environment copy.
  */
-
 void free_env(void)
 {
 	int index;
@@ -62,7 +60,6 @@ void free_env(void)
  * Return: If the environmental variable does not exist - NULL.
  *         Otherwise - a pointer to the environmental variable.
  */
-
 char **_getenv(const char *var)
 {
 	int index, len;
